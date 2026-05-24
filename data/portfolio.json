@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "category": "case",
+      "title": "Site Institucional — Cliente A",
+      "description": "Site institucional completo desenvolvido para cliente real. Projeto com foco em performance, SEO técnico e alta taxa de conversão. Layout responsivo, formulário de contato integrado e otimização para Google.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["HTML", "CSS", "JavaScript", "SEO"],
+      "url": "https://cliente.com.br"
+    },
+    {
+      "id": 2,
+      "category": "case",
+      "title": "Sistema de Agendamento",
+      "description": "Sistema web para gestão de horários e clientes. Painel administrativo com controle de agenda em tempo real, cadastro de clientes, histórico de atendimentos e relatórios em PDF.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["PHP", "MySQL", "JavaScript", "CSS"],
+      "url": "https://cliente.com.br/agenda"
+    },
+    {
+      "id": 3,
+      "category": "open",
+      "title": "Dashboard Template",
+      "description": "Template de dashboard moderno e responsivo, open source e disponível para download gratuito. Interface com gráficos interativos, tabelas de dados, dark mode nativo e componentes reutilizáveis.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["HTML", "CSS", "JavaScript", "Charts"],
+      "downloadUrl": "https://github.com/seu-usuario/dashboard-template"
+    },
+    {
+      "id": 4,
+      "category": "open",
+      "title": "Formulário de Contato com EmailJS",
+      "description": "Componente standalone de formulário de contato integrado ao EmailJS. Sem backend, sem custo, funciona em qualquer hospedagem estática. Inclui validação, feedback visual e template de e-mail pronto.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["HTML", "CSS", "JavaScript", "EmailJS"],
+      "downloadUrl": "https://github.com/seu-usuario/contact-form-emailjs"
+    },
+    {
+      "id": 5,
+      "category": "premium",
+      "title": "Sistema de Agendamento — Licença",
+      "description": "Versão completa do sistema de agendamento com código fonte incluso. Painel admin, gestão de clientes, agenda visual, relatórios e notificações por e-mail. Documentação completa e suporte por 30 dias.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["PHP", "MySQL", "JavaScript", "Admin"],
+      "price": "R$ 197",
+      "purchaseUrl": "https://kiwify.com.br/seu-produto"
+    },
+    {
+      "id": 6,
+      "category": "premium",
+      "title": "Landing Page de Alta Conversão",
+      "description": "Template de landing page otimizada para conversão, com seções de hero, benefícios, depoimentos, FAQ e CTA. Inclui integração com WhatsApp e formulário, animações suaves e 100% responsiva.",
+      "image": "images/project-placeholder.svg",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "price": "R$ 97",
+      "purchaseUrl": "https://kiwify.com.br/seu-produto-2"
+    }
+  ]
+}

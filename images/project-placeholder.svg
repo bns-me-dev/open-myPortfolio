@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#111D35"/>
+  <rect x="1" y="1" width="798" height="448" fill="none" stroke="#C5A880" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- Grid lines -->
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#C5A880" stroke-width="0.5" stroke-opacity="0.07"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#C5A880" stroke-width="0.5" stroke-opacity="0.07"/>
+  <line x1="200" y1="0" x2="200" y2="450" stroke="#C5A880" stroke-width="0.5" stroke-opacity="0.07"/>
+  <line x1="400" y1="0" x2="400" y2="450" stroke="#C5A880" stroke-width="0.5" stroke-opacity="0.07"/>
+  <line x1="600" y1="0" x2="600" y2="450" stroke="#C5A880" stroke-width="0.5" stroke-opacity="0.07"/>
+
+  <!-- Icon -->
+  <rect x="340" y="165" width="120" height="90" rx="8" fill="none" stroke="#C5A880" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="365" cy="190" r="10" fill="#C5A880" fill-opacity="0.25"/>
+  <polyline points="340,235 380,200 420,220 460,195 460,255 340,255" fill="#C5A880" fill-opacity="0.1" stroke="#C5A880" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Label -->
+  <text x="400" y="300" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="13" fill="#C5A880" fill-opacity="0.4" letter-spacing="3">PREVIEW EM BREVE</text>
+</svg>
