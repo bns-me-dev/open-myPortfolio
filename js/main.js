@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const EMAILJS_SERVICE_ID  = 'service_01rks9u';
   const EMAILJS_TEMPLATE_ID = 'template_gohmy4x';
 
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
   /* ── Category config ─────────────────────────────────── */
   const CATEGORY = {
     case:    { label:'Case',       cls:'badge-case',    hint:'Ver projeto ao vivo' },
