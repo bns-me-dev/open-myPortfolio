@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   /* ── EmailJS ────────────────────────────────────────────
      Dados da conta em emailjs.com
   ──────────────────────────────────────────────────────── */
-  const EMAILJS_PUBLIC_KEY  = 'SEU_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID  = 'SEU_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'SEU_TEMPLATE_ID';
+  const EMAILJS_PUBLIC_KEY  = 'QfX9F0RV4gBqENgR4';
+  const EMAILJS_SERVICE_ID  = 'service_01rks9u';
+  const EMAILJS_TEMPLATE_ID = 'template_gohmy4x';
 
   /* ── Category config ─────────────────────────────────── */
   const CATEGORY = {
