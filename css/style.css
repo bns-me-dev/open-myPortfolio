@@ -510,6 +510,14 @@ nav a.active { color:var(--primary); }
 .form-feedback.success { display:flex; background:rgba(72,199,142,.1); border:1px solid rgba(72,199,142,.3); color:#48C78E; }
 .form-feedback.error   { display:flex; background:rgba(255,82,82,.1);  border:1px solid rgba(255,82,82,.3);  color:#FF5252; }
 
+.social-links { display: flex; gap: 12px; margin-top: 24px; }
+
+.social-link { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--card); 
+  border: 1px solid var(--border); border-radius: 50%; color: var(--muted); transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.social-link:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.4); color: #fff; transform: translateY(-3px); }
+.social-link svg { width: 20px; height: 20px; }
+
 /* ==============================
    FORM VALIDATION
 ============================== */

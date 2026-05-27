@@ -5,23 +5,9 @@ Portfólio pessoal desenvolvido para apresentar projetos, soluções web e siste
 O objetivo do projeto é centralizar:
 
 - projetos reais desenvolvidos para clientes;
-- projetos open-source disponíveis para estudo ou download;
+- projetos open-source disponíveis para download;
 - soluções digitais prontas para uso;
 - informações de contato profissional.
-
----
-
-## Sobre
-
-Sou desenvolvedor freelancer com foco em:
-
-- desenvolvimento web;
-- sistemas web;
-- interfaces responsivas;
-- automação industrial;
-- soluções digitais.
-
-Minha experiência técnica também inclui mais de 5 anos atuando com programação industrial, automação e lógica de controle, aplicando essa base no desenvolvimento de software e sistemas.
 
 ---
 
