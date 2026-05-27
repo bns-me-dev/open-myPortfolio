@@ -386,6 +386,55 @@ nav a.active { color:var(--primary); }
 }
 .card-hint svg { width:14px; height:14px; }
 
+/* ── Carrossel ── */
+.carousel-wrap { position: relative; }
+
+.carousel-nav { display: none; align-items: center; justify-content: center; gap: 16px; margin-top: 40px; }
+
+.carousel-btn {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background var(--transition), border-color var(--transition),
+              color var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+.carousel-btn:hover:not(:disabled) {
+  background: rgba(197,168,128,.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.08);
+}
+.carousel-btn:disabled { opacity: .3; cursor: not-allowed; }
+.carousel-btn svg { width: 18px; height: 18px; }
+
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none; cursor: pointer; padding: 0;
+  transition: background var(--transition), width var(--transition);
+}
+.carousel-dot.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 999px;
+}
+
+.carousel-count {
+  font-family: var(--font-display);
+  font-size: .8rem; font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .06em;
+  min-width: 48px;
+  text-align: center;
+}
+
 /* Hidden/visible for filter */
 .portfolio-card { transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition), opacity .3s ease; }
 .portfolio-card.hidden { display:none; }

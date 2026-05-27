@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
     }),
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.05, rootMargin: '0px 0px 0px 0px' }
   );
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -89,24 +89,90 @@ document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('projects-grid');
   let allProjects = [];
 
-  try {
-    const res = await fetch('data/portfolio.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    allProjects = data.projects || [];
-    renderCards(allProjects);
-  } catch (err) {
-    console.error('Erro ao carregar projetos:', err);
-    grid.innerHTML = `<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:40px 0">
-      Não foi possível carregar os projetos. Tente novamente mais tarde.</p>`;
+  async function loadProjects() {
+    if (!grid) return;
+
+    grid.innerHTML = `
+      <p style="
+        color: var(--muted);
+        text-align:center;
+        grid-column:1/-1;
+        padding:40px 0;
+      ">
+        Carregando projetos...
+      </p>
+    `;
+
+    try {
+      const response = await fetch('./data/portfolio.json?v=' + Date.now(), {
+        method: 'GET',
+        cache: 'no-store'
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      allProjects = data.projects || [];
+
+      if (!allProjects.length) {
+        grid.innerHTML = `
+          <p style="
+            color: var(--muted);
+            text-align:center;
+            grid-column:1/-1;
+            padding:40px 0;
+          ">
+            Nenhum projeto encontrado.
+          </p>
+        `;
+        return;
+      }
+
+      renderCards(allProjects);
+
+    } catch (error) {
+      console.error('Erro ao carregar portfolio.json:', error);
+
+      grid.innerHTML = `
+        <p style="
+          color: var(--muted);
+          text-align:center;
+          grid-column:1/-1;
+          padding:40px 0;
+        ">
+          Não foi possível carregar os projetos.
+        </p>
+      `;
+    }
   }
 
+  loadProjects();
+
+  /* ── Carousel state ── */
+  const PER_PAGE = 6;
+  let currentPage = 0;
+  let currentList = [];
+
   function renderCards(projects) {
+    currentList = projects;
+    currentPage = 0;
+    renderPage();
+  }
+
+  function renderPage() {
     grid.innerHTML = '';
-    projects.forEach((p, i) => {
-      const cat     = CATEGORY[p.category] || CATEGORY.case;
-      const hint    = getHintLabel(p);
-      const card    = document.createElement('article');
+
+    const start      = currentPage * PER_PAGE;
+    const slice      = currentList.slice(start, start + PER_PAGE);
+    const totalPages = Math.ceil(currentList.length / PER_PAGE);
+
+    slice.forEach((p, i) => {
+      const cat  = CATEGORY[p.category] || CATEGORY.case;
+      const hint = getHintLabel(p);
+      const card = document.createElement('article');
       card.className = `portfolio-card reveal reveal-delay-${(i % 3) + 1}`;
       card.dataset.category = p.category;
       card.setAttribute('role', 'button');
@@ -128,7 +194,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
           <div class="card-hint">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/>
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
               <line x1="8" y1="12" x2="16" y2="12"/>
             </svg>
             ${hint}
@@ -140,7 +207,53 @@ document.addEventListener('DOMContentLoaded', async () => {
       grid.appendChild(card);
       revealObserver.observe(card);
     });
+
+    // Força visibilidade dos cards já visíveis na tela
+    setTimeout(() => {
+      document.querySelectorAll('.portfolio-card.reveal:not(.visible)').forEach(c => {
+        if (c.getBoundingClientRect().top < window.innerHeight) c.classList.add('visible');
+      });
+    }, 50);
+
+    updateCarouselNav(totalPages);
   }
+
+  function updateCarouselNav(totalPages) {
+    const prevBtn  = document.getElementById('carousel-prev');
+    const nextBtn  = document.getElementById('carousel-next');
+    const dotsWrap = document.getElementById('carousel-dots');
+    const countEl  = document.getElementById('carousel-count');
+    const navEl    = document.querySelector('.carousel-nav');
+
+    if (navEl) navEl.style.display = totalPages > 1 ? 'flex' : 'none';
+    if (!prevBtn || !nextBtn || !dotsWrap || !countEl) return;
+
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage >= totalPages - 1;
+    countEl.textContent = totalPages > 1 ? `${currentPage + 1} / ${totalPages}` : '';
+
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === currentPage ? ' active' : '');
+      dot.setAttribute('aria-label', `Página ${i + 1}`);
+      dot.addEventListener('click', () => goToPage(i));
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    renderPage();
+    document.getElementById('projetos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('carousel-prev')?.addEventListener('click', () => {
+    if (currentPage > 0) goToPage(currentPage - 1);
+  });
+  document.getElementById('carousel-next')?.addEventListener('click', () => {
+    if (currentPage < Math.ceil(currentList.length / PER_PAGE) - 1) goToPage(currentPage + 1);
+  });
 
   function getHintLabel(p) {
     if (p.category === 'case')    return 'Clique para ver detalhes';
