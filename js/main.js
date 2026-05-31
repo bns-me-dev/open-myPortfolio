@@ -131,6 +131,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
 
+      /* Constrói os filtros dinamicamente antes de renderizar */
+      buildFilters(allProjects);
+
       renderCards(allProjects);
 
     } catch (error) {
@@ -267,11 +270,61 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   /* =========================================================
-     Filter tabs
+     Filter tabs — gerados dinamicamente a partir das
+     categorias presentes no JSON. Só aparecem categorias
+     que de fato existem nos projetos carregados.
   ========================================================= */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => {
+
+  /**
+   * Constrói os botões de filtro com base nas categorias
+   * existentes no array de projetos. O botão "Todos" é
+   * sempre inserido primeiro e fica fixo. Os demais são
+   * criados apenas se houver ao menos 1 projeto naquela
+   * categoria — sem categorias fantasma.
+   *
+   * @param {Array} projects — lista completa de projetos
+   */
+  function buildFilters(projects) {
+    const filtersEl = document.querySelector('.portfolio-filters');
+    if (!filtersEl) return;
+
+    /* Limpa botões anteriores (exceto se vier a re-render) */
+    filtersEl.innerHTML = '';
+
+    /* Botão fixo "Todos" */
+    const allBtn = document.createElement('button');
+    allBtn.className = 'filter-btn active';
+    allBtn.dataset.filter = 'all';
+    allBtn.setAttribute('role', 'tab');
+    allBtn.setAttribute('aria-selected', 'true');
+    allBtn.textContent = 'Todos';
+    filtersEl.appendChild(allBtn);
+
+    /* Coleta categorias únicas na ordem em que aparecem */
+    const seen = new Set();
+    projects.forEach(p => {
+      if (p.category && !seen.has(p.category)) seen.add(p.category);
+    });
+
+    seen.forEach(cat => {
+      const cfg = CATEGORY[cat];
+      if (!cfg) return; /* categoria desconhecida — ignora */
+
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = cat;
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', 'false');
+      btn.textContent = cfg.label;
+      filtersEl.appendChild(btn);
+    });
+
+    /* Delega o evento de clique no container */
+    filtersEl.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      filtersEl.querySelectorAll('.filter-btn').forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
       });
@@ -285,7 +338,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       renderCards(filtered);
     });
-  });
+  }
 
   /* =========================================================
      Modal
