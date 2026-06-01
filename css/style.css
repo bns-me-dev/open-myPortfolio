@@ -493,7 +493,7 @@ nav a.active { color:var(--primary); }
   /* área de toque mínima recomendada pela WCAG */
   touch-action: manipulation;
 }
-.modal-close:hover { background: rgba(8,14,28,.75); color: var(--primary); }
+.modal-close:hover { background: rgba(197,168,128,.22); border-color: rgba(197,168,128,.4); color: var(--primary); }
 .modal-close svg { width: 18px; height: 18px; }
 
 .modal-image-wrap {
