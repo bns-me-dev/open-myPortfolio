@@ -173,14 +173,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const totalPages = Math.ceil(currentList.length / PER_PAGE);
 
     slice.forEach((p, i) => {
-      const cat  = CATEGORY[p.category] || CATEGORY.case;
-      const hint = getHintLabel(p);
+      const cat = CATEGORY[p.category] || CATEGORY.case;
       const card = document.createElement('article');
       card.className = `portfolio-card reveal reveal-delay-${(i % 3) + 1}`;
       card.dataset.category = p.category;
-      card.setAttribute('role', 'button');
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', `Ver detalhes: ${p.title}`);
 
       card.innerHTML = `
         <div class="card-thumb">
@@ -191,22 +187,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             <h3>${p.title}</h3>
             <span class="category-badge ${cat.cls}">${cat.label}</span>
           </div>
-          <p>${truncate(p.description, 100)}</p>
+          <p>${p.description}</p>
           <div class="card-tags">
             ${(p.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('')}
           </div>
-          <div class="card-hint">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="16"/>
-              <line x1="8" y1="12" x2="16" y2="12"/>
-            </svg>
-            ${hint}
+          <div class="card-action">
+            ${buildCardAction(p)}
           </div>
         </div>`;
 
-      card.addEventListener('click',   () => openModal(p));
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(p); });
       grid.appendChild(card);
       revealObserver.observe(card);
     });
@@ -258,11 +247,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (currentPage < Math.ceil(currentList.length / PER_PAGE) - 1) goToPage(currentPage + 1);
   });
 
-  function getHintLabel(p) {
-    if (p.category === 'case')    return 'Clique para ver detalhes';
-    if (p.category === 'open')    return 'Download gratuito disponível';
-    if (p.category === 'premium') return `Disponível por ${p.price || ''}`;
-    return 'Ver detalhes';
+  /* Gera o botão de ação correto para cada categoria */
+  function buildCardAction(p) {
+    if (p.category === 'case' && p.url) {
+      return `<a href="${p.url}" target="_blank" rel="noopener" class="btn btn-primary card-btn">Ver Site</a>`;
+    }
+    if (p.category === 'open') {
+      const href = p.downloadUrl || p.url || '#contato';
+      const attrs = (p.downloadUrl || p.url) ? `target="_blank" rel="noopener"` : '';
+      return `<a href="${href}" ${attrs} class="btn btn-primary card-btn">Ver Detalhes</a>`;
+    }
+    if (p.category === 'premium') {
+      const label = p.price ? `Adquirir — ${p.price}` : 'Adquirir Acesso';
+      const href  = p.purchaseUrl || '#contato';
+      const attrs = p.purchaseUrl ? `target="_blank" rel="noopener"` : '';
+      return `<a href="${href}" ${attrs} class="btn btn-primary card-btn">${label}</a>`;
+    }
+    /* Fallback — sem URL definida: scroll para a section #contato */
+    return `<a href="#contato" class="btn btn-ghost card-btn">Fale Comigo</a>`;
   }
 
   function truncate(str, len) {
@@ -339,69 +341,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderCards(filtered);
     });
   }
-
-  /* =========================================================
-     Modal
-  ========================================================= */
-  const modal      = document.getElementById('project-modal');
-  const modalClose = document.getElementById('modal-close');
-
-  function openModal(p) {
-    const cat = CATEGORY[p.category] || CATEGORY.case;
-
-    document.getElementById('modal-image').src = p.image;
-    document.getElementById('modal-image').alt = p.title;
-    document.getElementById('modal-badge').textContent  = cat.label;
-    document.getElementById('modal-badge').className    = `category-badge ${cat.cls}`;
-    document.getElementById('modal-title').textContent  = p.title;
-    document.getElementById('modal-desc').textContent   = p.description;
-
-    // Tags
-    const tagsEl = document.getElementById('modal-tags');
-    tagsEl.innerHTML = (p.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('');
-
-    // Actions
-    const actionsEl = document.getElementById('modal-actions');
-    actionsEl.innerHTML = buildActions(p);
-
-    modal.removeAttribute('hidden');
-    document.body.style.overflow = 'hidden';
-    modalClose.focus();
-  }
-
-  function buildActions(p) {
-    const parts = [];
-    if (p.category === 'case' && p.url) {
-      parts.push(`<a href="${p.url}" target="_blank" rel="noopener" class="btn btn-primary">Ver Projeto ao Vivo</a>`);
-    }
-    if (p.category === 'open' && p.downloadUrl) {
-      parts.push(`<a href="${p.downloadUrl}" download class="btn btn-primary">Download Gratuito</a>`);
-    }
-    if (p.category === 'premium') {
-      if (p.purchaseUrl) {
-        const label = p.price ? `Adquirir — ${p.price}` : 'Adquirir Acesso';
-        parts.push(`<a href="${p.purchaseUrl}" target="_blank" rel="noopener" class="btn btn-primary">${label}</a>`);
-      }
-    }
-    parts.push(`<a href="#contato" class="btn btn-ghost" id="modal-contact-link">Fale Comigo</a>`);
-    return parts.join('');
-  }
-
-  function closeModal() {
-    modal.setAttribute('hidden', '');
-    document.body.style.overflow = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal(); });
-
-  // Close modal and scroll to contact when clicking "Fale Comigo" inside modal
-  modal.addEventListener('click', e => {
-    if (e.target.id === 'modal-contact-link') {
-      closeModal();
-    }
-  });
 
   /* =========================================================
      Contact form — EmailJS
