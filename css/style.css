@@ -453,60 +453,143 @@ nav a.active { color:var(--primary); }
    MODAL
    ========================================================= */
 .modal-overlay {
-  position:fixed; inset:0; z-index:500;
-  background:rgba(5,9,18,.85);
-  backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center;
-  padding:24px;
-  opacity:0; transition:opacity .25s ease;
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(5,9,18,.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; transition: opacity .25s ease;
+  /* Garante que o overlay não ultrapasse a tela em nenhum eixo */
+  overflow: hidden;
 }
-.modal-overlay:not([hidden]) { opacity:1; }
-.modal-overlay[hidden] { display:none; }
+.modal-overlay:not([hidden]) { opacity: 1; }
+.modal-overlay[hidden] { display: none; }
 
 .modal-box {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  width:100%; max-width:680px;
-  max-height:90vh; overflow-y:auto;
-  position:relative;
-  transform:translateY(24px);
-  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%; max-width: 680px;
+  /* usa dvh para cobrir 100% da altura visível real no mobile */
+  max-height: min(90vh, 90dvh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  transform: translateY(24px);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+  /* garante que nada transborde o border-radius */
+  isolation: isolate;
 }
-.modal-overlay:not([hidden]) .modal-box { transform:translateY(0); }
+.modal-overlay:not([hidden]) .modal-box { transform: translateY(0); }
 
+/* Botão fechar — maior área de toque no mobile */
 .modal-close {
-  position:absolute; top:16px; right:16px; z-index:10;
-  width:36px; height:36px;
-  display:flex; align-items:center; justify-content:center;
-  background:rgba(255,255,255,.07); border:1px solid var(--border);
-  border-radius:50%; cursor:pointer; color:var(--muted);
-  transition:background var(--transition), color var(--transition);
+  position: absolute; top: 12px; right: 12px; z-index: 10;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8,14,28,.75); border: 1px solid var(--border);
+  border-radius: 50%; cursor: pointer; color: var(--text);
+  transition: background var(--transition), color var(--transition);
+  /* área de toque mínima recomendada pela WCAG */
+  touch-action: manipulation;
 }
-.modal-close:hover { background:rgba(255,255,255,.14); color:var(--text); }
-.modal-close svg { width:18px; height:18px; }
+.modal-close:hover { background: rgba(8,14,28,.75); color: var(--primary); }
+.modal-close svg { width: 18px; height: 18px; }
 
 .modal-image-wrap {
-  width:100%; aspect-ratio:16/9; overflow:hidden;
-  background:var(--card-2); border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  background: var(--card-2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  /* impede que a imagem estoure o container */
+  flex-shrink: 0;
 }
-.modal-image-wrap img { width:100%; height:100%; object-fit:cover; }
+.modal-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
-.modal-body { padding:28px 32px 32px; }
+.modal-body { padding: 24px 28px 28px; }
 
-.modal-meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+.modal-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 
 .modal-title {
-  font-family:var(--font-display); font-size:1.5rem; font-weight:700;
-  letter-spacing:-.01em; margin-bottom:12px; line-height:1.25;
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
+  letter-spacing: -.01em; margin-bottom: 10px; line-height: 1.25;
 }
 
 .modal-desc {
-  color:var(--muted); font-size:.95rem; line-height:1.8;
-  margin-bottom:24px; font-weight:300;
+  color: var(--muted); font-size: .92rem; line-height: 1.8;
+  margin-bottom: 22px; font-weight: 300;
 }
 
-.modal-actions { display:flex; gap:12px; flex-wrap:wrap; }
-.modal-actions .btn { flex:1; min-width:140px; }
+/* Ações: cada botão ocupa 100% de largura no mobile por padrão */
+.modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.modal-actions .btn { flex: 1 1 140px; min-width: 0; }
+
+/* ── Modal responsivo — bottom sheet no mobile ── */
+@media (max-width: 600px) {
+  /* Overlay alinha o box na parte de baixo */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  /* Bottom sheet: sobe da base, ocupa toda largura */
+  .modal-box {
+    max-width: 100%;
+    width: 100%;
+    /* altura máxima generosa para telas pequenas */
+    max-height: 92dvh;
+    max-height: 92vh; /* fallback */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    /* animação de baixo para cima */
+    transform: translateY(100%);
+    transition: transform .35s cubic-bezier(.32,0,.67,0);
+    /* adiciona padding inferior seguro para iPhones com notch */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .modal-overlay:not([hidden]) .modal-box {
+    transform: translateY(0);
+    transition: transform .35s cubic-bezier(.33,1,.68,1);
+  }
+
+  /* Indicador de drag (pill) no topo — visual de bottom sheet */
+  .modal-box::before {
+    content: '';
+    display: block;
+    width: 40px; height: 4px;
+    background: var(--border);
+    border-radius: 999px;
+    margin: 12px auto 0;
+    flex-shrink: 0;
+  }
+
+  /* Imagem com aspect-ratio menor para sobrar espaço ao conteúdo */
+  .modal-image-wrap { aspect-ratio: 16/8; }
+
+  /* Body com padding ajustado para mobile */
+  .modal-body { padding: 16px 18px 24px; }
+
+  /* Título menor para caber sem quebrar muito */
+  .modal-title { font-size: 1.15rem; margin-bottom: 8px; }
+
+  .modal-desc { font-size: .88rem; margin-bottom: 18px; }
+
+  /* Botões empilhados verticalmente, full width */
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .modal-actions .btn {
+    flex: none;
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  /* Botão fechar maior e bem posicionado no mobile */
+  .modal-close {
+    top: 16px; right: 14px;
+    width: 44px; height: 44px;
+    background: rgba(8,14,28,.85);
+  }
+}
 
 /* =========================================================
    CONTACT
