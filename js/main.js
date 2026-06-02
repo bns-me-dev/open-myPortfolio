@@ -17,12 +17,46 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
-  /* ── Category config ─────────────────────────────────── */
+  /* ── Category config ─────────────────────────────────────
+     Categorias com comportamento especial:
+       site     → "Ver Site" (outline) + "Peça o seu" (primary)
+       template → "Abrir Código" (primary) → GitHub
+       product  → "Comprar · R$xx" (primary) → Hotmart/Gumroad
+
+     Qualquer outra categoria (app, sistema, api, automacao…)
+     cai no fallback automático → "Peça o seu" → #contato.
+
+     Para adicionar um novo tipo de projeto basta criar a
+     categoria no portfolio.json — não é preciso alterar o JS.
+  ──────────────────────────────────────────────────────── */
   const CATEGORY = {
-    case:    { label:'Case',       cls:'badge-case',    hint:'Ver projeto ao vivo' },
-    open:    { label:'Open Source', cls:'badge-open',   hint:'Download gratuito'   },
-    premium: { label:'Premium',    cls:'badge-premium', hint:'Adquirir acesso'     },
+    /* Categorias com comportamento especial */
+    site:     { label: 'Site',      cls: 'badge-site',     },
+    template: { label: 'Template',  cls: 'badge-template',  },
+    product:  { label: 'Produto',   cls: 'badge-product',   },
+
+    /* Exemplos de categorias livres — label/badge gerados automaticamente */
+    app:      { label: 'App',       cls: 'badge-default',   },
+    sistema:  { label: 'Sistema',   cls: 'badge-default',   },
+    api:      { label: 'API',       cls: 'badge-default',   },
   };
+
+  /**
+   * Retorna a config de uma categoria, criando uma config padrão
+   * para categorias não mapeadas explicitamente (label capitalizado,
+   * badge padrão). Isso garante que qualquer categoria nova no JSON
+   * seja exibida corretamente no filtro e no badge sem precisar
+   * alterar o código.
+   *
+   * @param {string} cat — valor de project.category
+   * @returns {{ label: string, cls: string }}
+   */
+  function getCategoryConfig(cat) {
+    if (CATEGORY[cat]) return CATEGORY[cat];
+    /* Fallback dinâmico para categorias não mapeadas */
+    const label = cat.charAt(0).toUpperCase() + cat.slice(1);
+    return { label, cls: 'badge-default' };
+  }
 
   /* =========================================================
      WhatsApp
@@ -173,7 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const totalPages = Math.ceil(currentList.length / PER_PAGE);
 
     slice.forEach((p, i) => {
-      const cat = CATEGORY[p.category] || CATEGORY.case;
+      const cat = getCategoryConfig(p.category);
       const card = document.createElement('article');
       card.className = `portfolio-card reveal reveal-delay-${(i % 3) + 1}`;
       card.dataset.category = p.category;
@@ -247,24 +281,47 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (currentPage < Math.ceil(currentList.length / PER_PAGE) - 1) goToPage(currentPage + 1);
   });
 
-  /* Gera o botão de ação correto para cada categoria */
+  /* =========================================================
+     buildCardAction — gera os botões de ação do card
+
+     Lógica por categoria:
+       site     → "Peça o seu" (primary) + "Ver Site" (outline, se tiver url)
+       template → "Abrir Código" (primary) → GitHub
+       product  → "Comprar · R$xx" (primary) → Hotmart/Gumroad
+       *resto*  → "Peça o seu" (primary) → #contato  ← fallback universal
+  ========================================================= */
   function buildCardAction(p) {
-    if (p.category === 'case' && p.url) {
-      return `<a href="${p.url}" target="_blank" rel="noopener" class="btn btn-primary card-btn">Ver Site</a>`;
+
+    /* ── SITE ────────────────────────────────────────────── */
+    if (p.category === 'site') {
+      const verSite = p.url
+        ? `<a href="${p.url}" target="_blank" rel="noopener"
+              class="btn btn-outline card-btn">Ver Site</a>`
+        : '';
+      return `
+        <div class="card-actions-row">
+          <a href="#contato" class="btn btn-primary card-btn">Peça o seu</a>
+          ${verSite}
+        </div>`;
     }
-    if (p.category === 'open') {
-      const href = p.downloadUrl || p.url || '#contato';
-      const attrs = (p.downloadUrl || p.url) ? `target="_blank" rel="noopener"` : '';
-      return `<a href="${href}" ${attrs} class="btn btn-primary card-btn">Ver Detalhes</a>`;
+
+    /* ── TEMPLATE ────────────────────────────────────────── */
+    if (p.category === 'template') {
+      const href  = p.repoUrl || p.url || '#contato';
+      const attrs = (p.repoUrl || p.url) ? `target="_blank" rel="noopener"` : '';
+      return `<a href="${href}" ${attrs} class="btn btn-primary card-btn">Abrir Código</a>`;
     }
-    if (p.category === 'premium') {
-      const label = p.price ? `Adquirir — ${p.price}` : 'Adquirir Acesso';
+
+    /* ── PRODUCT ─────────────────────────────────────────── */
+    if (p.category === 'product') {
+      const label = p.price ? `Comprar · ${p.price}` : 'Comprar';
       const href  = p.purchaseUrl || '#contato';
       const attrs = p.purchaseUrl ? `target="_blank" rel="noopener"` : '';
       return `<a href="${href}" ${attrs} class="btn btn-primary card-btn">${label}</a>`;
     }
-    /* Fallback — sem URL definida: scroll para a section #contato */
-    return `<a href="#contato" class="btn btn-ghost card-btn">Fale Comigo</a>`;
+
+    /* ── FALLBACK UNIVERSAL (app, sistema, api, etc.) ────── */
+    return `<a href="#contato" class="btn btn-primary card-btn">Peça o seu</a>`;
   }
 
   function truncate(str, len) {
@@ -309,8 +366,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     seen.forEach(cat => {
-      const cfg = CATEGORY[cat];
-      if (!cfg) return; /* categoria desconhecida — ignora */
+      const cfg = getCategoryConfig(cat); /* suporta qualquer categoria */
 
       const btn = document.createElement('button');
       btn.className = 'filter-btn';

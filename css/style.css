@@ -374,9 +374,15 @@ nav a.active { color:var(--primary); }
   padding:3px 10px; border-radius:999px;
   white-space:nowrap;
 }
-.badge-case    { background:rgba(99,179,237,.12); color:#63B3ED; border:1px solid rgba(99,179,237,.25); }
-.badge-open    { background:rgba(72,199,142,.12); color:#48C78E; border:1px solid rgba(72,199,142,.25); }
-.badge-premium { background:rgba(197,168,128,.12); color:var(--primary); border:1px solid rgba(197,168,128,.25); }
+
+/* ── Badges por categoria ───────────────────────────────
+   Categorias especiais: site, template, product
+   Fallback universal: badge-default (app, sistema, api…)
+──────────────────────────────────────────────────────── */
+.badge-site     { background:rgba(99,179,237,.12); color:#63B3ED; border:1px solid rgba(99,179,237,.25); }
+.badge-template { background:rgba(72,199,142,.12); color:#48C78E; border:1px solid rgba(72,199,142,.25); }
+.badge-product  { background:rgba(197,168,128,.12); color:var(--primary); border:1px solid rgba(197,168,128,.25); }
+.badge-default  { background:rgba(167,139,250,.12); color:#A78BFA; border:1px solid rgba(167,139,250,.25); }
 
 /* Botão de ação do card */
 .card-action { margin-top: 6px; }
@@ -385,6 +391,19 @@ nav a.active { color:var(--primary); }
   justify-content: center;
   padding: 11px 20px;
   font-size: .85rem;
+}
+
+/* Dois botões lado a lado (site: "Peça o seu" + "Ver Site") */
+.card-actions-row {
+  display: flex;
+  gap: 8px;
+}
+.card-actions-row .card-btn {
+  flex: 1;
+}
+/* Em telas muito pequenas empilha verticalmente */
+@media (max-width: 360px) {
+  .card-actions-row { flex-direction: column; }
 }
 
 /* ── Carrossel ── */
