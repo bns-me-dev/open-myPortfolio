@@ -1,0 +1,28 @@
+{
+  "timeline": [
+    {
+      "year": 2022,
+      "title": "Nome da competição / torneio",
+      "role": "Função exercida na equipe",
+      "category": "robotica",
+      "description": "Descrição direta do desafio técnico resolvido e do seu papel no projeto.",
+      "result": "Resultado ou premiação obtida"
+    },
+    {
+      "year": 2023,
+      "title": "Nome da competição / hackathon",
+      "role": "Função exercida na equipe",
+      "category": "automacao",
+      "description": "Descrição direta do desafio técnico resolvido e do seu papel no projeto.",
+      "result": "Resultado ou premiação obtida"
+    },
+    {
+      "year": 2024,
+      "title": "Nome da competição / torneio",
+      "role": "Função exercida na equipe",
+      "category": "software",
+      "description": "Descrição direta do desafio técnico resolvido e do seu papel no projeto.",
+      "result": "Resultado ou premiação obtida"
+    }
+  ]
+}
