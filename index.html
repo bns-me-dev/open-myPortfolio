@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bruno Souza | Engenharia de Automação & Desenvolvimento de Software</title>
-  <meta name="description" content="Engenheiro de automação industrial e desenvolvedor full stack. Do CLP ao código: projetos de automação, IoT industrial, sistemas web e software sob medida." />
+  <title>Bruno Souza | Automação Industrial & Desenvolvimento de Software</title>
+  <meta name="description" content="Do controle ao software: projetos de automação, sistemas web e software." />
 
   <!-- Open Graph -->
   <meta property="og:title"       content="Bruno Souza | Automação Industrial & Desenvolvimento de Software" />
-  <meta property="og:description" content="Hub de projetos: automação industrial, IoT, robótica, sistemas web e software. Do chão de fábrica à nuvem." />
+  <meta property="og:description" content="Hub de projetos: automação industrial, sistemas web e software." />
   <meta property="og:type"        content="website" />
   <meta property="og:image"       content="images/avatar-bns.png" />
 
@@ -26,7 +26,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Bruno Souza",
-      "jobTitle": "Engenheiro de Automação Industrial & Desenvolvedor Full Stack",
+      "jobTitle": "Engenheiro & Desenvolvedor Full Stack",
       "url": "https://bns-me.com",
       "email": "bns.me.dev@gmail.com",
       "telephone": "+5571981686867",
@@ -53,7 +53,6 @@
   <header class="topbar-mobile">
     <a href="#inicio" class="topbar-logo" aria-label="BNS.me — Início">
       <img src="images/logo-bns.png" alt="" />
-      <span>BNS.me</span>
     </a>
     <button class="rail-toggle" id="rail-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="rail">
       <span></span><span></span><span></span>
@@ -137,25 +136,6 @@
               <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
               <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
             </div>
-
-            <dl class="hero-metrics">
-              <div class="metric">
-                <dt>Projetos entregues</dt>
-                <dd>+20</dd>
-              </div>
-              <div class="metric">
-                <dt>Competições &amp; prêmios</dt>
-                <dd>05</dd>
-              </div>
-              <div class="metric">
-                <dt>Integração HW + SW</dt>
-                <dd>100%</dd>
-              </div>
-              <div class="metric">
-                <dt>Disponibilidade em processos</dt>
-                <dd>99.9%</dd>
-              </div>
-            </dl>
           </div>
 
           <div class="hero-avatar">
@@ -342,27 +322,6 @@
   <a id="whatsapp-button" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale pelo WhatsApp">
     <img src="images/whatsapp.svg" alt="" />
   </a>
-
-  <!-- Modal de projeto -->
-  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-    <div class="modal-box">
-      <button class="modal-close" id="modal-close" aria-label="Fechar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <div class="modal-image-wrap">
-        <img id="modal-image" src="" alt="" />
-      </div>
-      <div class="modal-body">
-        <div class="modal-meta">
-          <span id="modal-badge" class="category-badge"></span>
-          <div id="modal-tags" class="card-tags"></div>
-        </div>
-        <h2 id="modal-title" class="modal-title"></h2>
-        <p  id="modal-desc"  class="modal-desc"></p>
-        <div id="modal-actions" class="modal-actions"></div>
-      </div>
-    </div>
-  </div>
 
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

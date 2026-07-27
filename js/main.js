@@ -208,11 +208,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
         </div>`;
 
-      card.addEventListener('click', e => {
-        if (e.target.closest('a')) return; // não abre modal se clicou num botão de ação
-        openModal(p);
-      });
-
       grid.appendChild(card);
       revealObserver.observe(card);
     });
@@ -323,51 +318,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderCards(filtered);
     });
   }
-
-  /* =========================================================
-     Modal de detalhes do projeto
-  ========================================================= */
-  const modal        = document.getElementById('project-modal');
-  const modalImage    = document.getElementById('modal-image');
-  const modalBadge     = document.getElementById('modal-badge');
-  const modalTags     = document.getElementById('modal-tags');
-  const modalTitle    = document.getElementById('modal-title');
-  const modalDesc     = document.getElementById('modal-desc');
-  const modalActions  = document.getElementById('modal-actions');
-  const modalClose    = document.getElementById('modal-close');
-  let lastFocusedEl = null;
-
-  function openModal(p) {
-    if (!modal) return;
-    const cat = getCategoryConfig(p.category);
-
-    modalImage.src = p.image;
-    modalImage.alt = p.title;
-    modalBadge.textContent = cat.label;
-    modalBadge.className = `category-badge ${cat.cls}`;
-    modalTags.innerHTML = (p.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('');
-    modalTitle.textContent = p.title;
-    modalDesc.textContent = p.description;
-    modalActions.innerHTML = buildCardAction(p);
-
-    lastFocusedEl = document.activeElement;
-    modal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    modalClose.focus();
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    modal.hidden = true;
-    document.body.style.overflow = '';
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }
-
-  modalClose?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
-  });
 
   /* =========================================================
      Formulário de contato — EmailJS
