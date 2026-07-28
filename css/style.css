@@ -405,12 +405,6 @@ body::before {
 
 .portfolio-card.hidden { display:none; }
 
-.portfolio-cta {
-  text-align:center; margin-top:48px; padding:38px;
-  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg);
-}
-.portfolio-cta p { font-family:var(--font-display); font-size:1.08rem; font-weight:600; color:var(--text); margin-bottom:18px; }
-
 /* =========================================================
    CONTATO
    ========================================================= */
@@ -457,11 +451,8 @@ body::before {
 .form-feedback.error   { display:flex; background:rgba(224,82,79,.1); border:1px solid rgba(224,82,79,.3); color:#F0857F; }
 
 /* =========================================================
-   FOOTER + WHATSAPP
+   WHATSAPP
    ========================================================= */
-.main-footer { padding:36px 20px; text-align:center; position:relative; z-index:1; }
-.footer-copy { font-size:.8rem; color:var(--text-faint); }
-
 .whatsapp-float {
   position:fixed; right:26px; bottom:26px; width:56px; height:56px;
   display:flex; align-items:center; justify-content:center; border-radius:50%;

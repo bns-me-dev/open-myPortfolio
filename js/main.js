@@ -22,9 +22,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   ──────────────────────────────────────────────────────── */
   const CATEGORY = {
     automacao: { label: 'Automação & IoT',        cls: 'badge-automacao' },
-    software:  { label: 'Software & Web',          cls: 'badge-software'  },
-    robotica:  { label: 'Robótica & Embarcados',   cls: 'badge-robotica'  },
-    pd:        { label: 'P&D / Pessoal',           cls: 'badge-pd'        },
+    hardware:  { label: 'Hardware',               cls: 'badge-hardware'  },
+    software:  { label: 'Software & Web',         cls: 'badge-software'  },
+    mobile:    { label: 'Mobile',                 cls: 'badge-mobile'    },
+    pd:        { label: 'P&D / Pessoal',          cls: 'badge-pd'        },
   };
 
   function getCategoryConfig(cat) {
