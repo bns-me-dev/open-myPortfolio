@@ -322,7 +322,6 @@ body::before {
   padding:18px 20px;
 }
 .timeline-card h4 { font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--text); margin-bottom:6px; line-height:1.35; }
-.timeline-role { font-size:.82rem; color:var(--text-dim); margin-bottom:8px; }
 .timeline-desc { font-size:.88rem; color:var(--text-dim); line-height:1.65; margin-bottom:10px; }
 .timeline-result {
   display:inline-flex; align-items:center; gap:6px;

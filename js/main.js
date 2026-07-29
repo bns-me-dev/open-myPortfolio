@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const response = await fetch('./data/timeline.json?v=' + Date.now(), { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
-      const items = (data.timeline || []).slice().sort((a, b) => a.year - b.year);
+      const items = (data.timeline || []).slice().sort((a, b) => b.year - a.year );
 
       if (!items.length) {
         track.innerHTML = `<p style="color:var(--text-dim);">Nenhum item na linha do tempo ainda.</p>`;
@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           <span class="timeline-year">${item.year}</span>
           <div class="timeline-card">
             <h4>${item.title}</h4>
-            <p class="timeline-role">${item.role || ''}</p>
             <p class="timeline-desc">${item.description || ''}</p>
             ${item.result ? `<span class="timeline-result">${item.result}</span>` : ''}
           </div>
