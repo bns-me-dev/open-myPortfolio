@@ -1,0 +1,34 @@
+{
+  "timeline": [
+    {
+      "year": 2016,
+      "title": "FLL - First Lego League",
+      "description": "Desenvolvimento de robô automatizado para resolver desafios da Mesa, utilizando LEGO Mindstorms EV3. Participação na etapa regional e nacional, com foco no projeto de pesquisa, engenharia e trabalho em equipe.",
+      "result": "3º lugar na etapa regional"
+    },
+    {
+      "year": 2017,
+      "title": "OBR - Olimpíada Brasileira de Robótica",
+      "description": "Desenvolvimento de robô automatizado para resolver desafios da Arena. Participação na etapa regional com foco na programação e trabalho em equipe.",
+      "result": "1º lugar na categoria Robustez"
+    },
+    {
+      "year": 2018,
+      "title": "OBR - Olimpíada Brasileira de Robótica",
+      "description": "Desenvolvimento de robô automatizado para resolver desafios da Arena. Participação na etapa regional com foco no projeto mecânico e trabalho em equipe.",
+      "result": "3º lugar na etapa regional"
+    },
+    {
+      "year": 2019,
+      "title": "FTC - First Tech Challenge",
+      "description": "Desenvolvimento de robô automatizado para resolver desafios da Arena. Participação na etapa nacional com foco no projeto mecânico, documentação de engenharia e trabalho em equipe.",
+      "result": "2º lugar na etapa nacional"
+    },
+    {
+      "year": 2021,
+      "title": "WorlSkills",
+      "description": "Comissionamento de sensores, montagem mecânica, pneumática e elétrica das plantas automatizadas com boas práticas profissionais. Participação da etapa estadual e nacional.",
+      "result": "4º lugar na etapa nacional"
+    }    
+  ]
+}

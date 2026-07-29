@@ -5,28 +5,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bruno Souza | Desenvolvedor Freelancer</title>
-  <meta name="description" content="Desenvolvedor freelancer. Criação de sites, landing pages e sistemas com foco em performance e conversão. Solicite um orçamento." />
+  <title>Bruno Souza | Automação Industrial & Desenvolvimento de Software</title>
+  <meta name="description" content="Do controle ao software: projetos de automação, sistemas web e software." />
 
   <!-- Open Graph -->
-  <meta property="og:title"       content="Bruno Souza | Desenvolvedor Web & Sistemas" />
-  <meta property="og:description" content="Desenvolvimento de sites, sistemas web e soluções digitais modernas." />
+  <meta property="og:title"       content="Bruno Souza | Automação Industrial & Desenvolvimento de Software" />
+  <meta property="og:description" content="Hub de projetos: automação industrial, sistemas web e software." />
   <meta property="og:type"        content="website" />
   <meta property="og:image"       content="images/avatar-bns.png" />
 
   <link rel="icon" type="image/png" href="images/logo-bns.png" />
 
-  <!-- Fonts: Outfit (display) + DM Sans (body) -->
+  <!-- Fonts: Space Grotesk (display) + Inter (corpo) + JetBrains Mono (dados/tags) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Bruno Souza",
-      "jobTitle": "Desenvolvedor Web Freelancer",
+      "jobTitle": "Engenheiro & Desenvolvedor Full Stack",
       "url": "https://bns-me.com",
       "email": "bns.me.dev@gmail.com",
       "telephone": "+5571981686867",
@@ -45,123 +45,189 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header class="main-header">
-    <div class="container header-grid">
-      <a href="/" class="logo" aria-label="BNS.me — Início">
-        <img src="images/logo-bns.png" alt="Logo BNS.me" />
-      </a>
-      <nav id="main-nav" role="navigation" aria-label="Menu principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-      </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+  <!-- =========================================================
+       TOPBAR MOBILE (some no desktop, vira gatilho do drawer)
+  ========================================================= -->
+  <header class="topbar-mobile">
+    <a href="#inicio" class="topbar-logo" aria-label="BNS.me — Início">
+      <img src="images/logo-bns.png" alt="" />
+    </a>
+    <button class="rail-toggle" id="rail-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="rail">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main>
+  <!-- Overlay do drawer mobile -->
+  <div class="rail-overlay" id="rail-overlay"></div>
 
-    <!-- HERO -->
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="hero-tag">DESENVOLVEDOR WEB &amp; SISTEMAS</span>
-          <h1>
-            Soluções digitais
-            que <em>funcionam de verdade</em>.
-          </h1>
-          <p>
-            Desenvolvimento com foco em performance, usabilidade e
-            experiência do usuário — do layout ao código.
-          </p>
-          <div class="hero-actions">
-            <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-            <a href="#contato"  class="btn btn-outline">Entrar em Contato</a>
-          </div>
-        </div>
-        <div class="hero-avatar">
-          <div class="glow-blob"></div>
-          <img src="images/avatar-bns.png" alt="Foto Bruno Souza" />
+  <div class="app-shell">
+
+    <!-- =========================================================
+         SIDEBAR — "RAIL" ESTILO PAINEL SUPERVISÓRIO
+    ========================================================= -->
+    <aside class="rail" id="rail" aria-label="Navegação principal">
+
+      <div class="rail-brand">
+        <a href="#inicio" aria-label="BNS.me — Início">
+          <img src="images/logo-bns.png" alt="Logo BNS.me" />
+        </a>
+      </div>
+
+      <div class="rail-status">
+        <span class="led led--on" aria-hidden="true"></span>
+        <div class="rail-status-text">
+          <span class="rail-status-line">SYSTEM: ONLINE</span>
+          <span class="rail-status-line rail-status-sub">MODE: MY_HUB</span>
         </div>
       </div>
-    </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="about-section">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <div class="section-header">
-              <span class="section-tag">Sobre Mim</span>
-              <h2 class="section-title">Desenvolvedor com <br>base técnica sólida</h2>
-            </div>
-            <p>Sou desenvolvedor freelancer com foco em criação de sites, sistemas web e soluções digitais modernas.</p>
-            <p>Minha base técnica vem de mais de 5 anos atuando com programação industrial, lógica de controle e automação — o que me dá uma visão diferenciada para resolver problemas de forma eficiente.</p>
-            <p>Aplico esse raciocínio no desenvolvimento com organização, clareza e atenção aos detalhes.</p>
-          </div>
-          <div class="skills-wrap reveal reveal-delay-2">
-            <div class="skills-group">
-              <h4>Desenvolvimento Web</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-                <span class="skill-tag">JavaScript</span>
-              </div>
-            </div>
-            <div class="skills-group">
-              <h4>Banco de Dados</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">PostgreSQL</span>
-              </div>
-            </div>
-            <div class="skills-group">
-              <h4>Backend</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">Java</span>
-              </div>
-            </div>
-            <div class="skills-group">
-              <h4>Automação &amp; Indústria</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">Ladder</span>
-                <span class="skill-tag">Graph / SFC</span>
-                <span class="skill-tag">FBD</span>
-                <span class="skill-tag">SCL</span>
-                <span class="skill-tag">STL</span>
-                <span class="skill-tag">Modbus</span>
-                <span class="skill-tag">Ethernet/IP</span>
-                <span class="skill-tag">Profinet</span>
-                <span class="skill-tag">I/O Link</span>
-              </div>
-            </div>
-            <div class="skills-group">
-              <h4>Ferramentas</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">VS Code</span>
-                <span class="skill-tag">Figma</span>
-              </div>
-            </div>
-          </div>
+      <nav class="rail-nav" role="tablist" aria-label="Seções">
+        <a href="#sobre" class="rail-btn" data-target="sobre" role="tab" aria-selected="false">
+          <span class="rail-btn-lamp" aria-hidden="true"></span>
+          <span class="rail-btn-tag">01</span>
+          <span class="rail-btn-label">Sobre</span>
+        </a>
+        <a href="#projetos" class="rail-btn" data-target="projetos" role="tab" aria-selected="false">
+          <span class="rail-btn-lamp" aria-hidden="true"></span>
+          <span class="rail-btn-tag">02</span>
+          <span class="rail-btn-label">Projetos</span>
+        </a>
+        <a href="#contato" class="rail-btn" data-target="contato" role="tab" aria-selected="false">
+          <span class="rail-btn-lamp" aria-hidden="true"></span>
+          <span class="rail-btn-tag">03</span>
+          <span class="rail-btn-label">Contato</span>
+        </a>
+      </nav>
+
+      <div class="rail-footer">
+        <div class="rail-social">
+          <a href="https://github.com/bns-me-dev" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <!-- <a href="https://www.linkedin.com/in/bns-me-dev" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a> -->
+          <a id="rail-whatsapp-link" href="https://wa.me/5571981686867" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
         </div>
+        <span class="rail-version">v2.0 · 2026</span>
       </div>
-    </section>
+    </aside>
 
-    <!-- PROJETOS -->
-    <section id="projetos" class="portfolio-section">
-      <div class="container">
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+    ========================================================= -->
+    <main id="main-content" class="main-scroll">
 
-        <div class="section-header reveal">
-          <span class="section-tag">Portfólio</span>
-          <h2 class="section-title">Projetos Desenvolvidos</h2>
+      <!-- HERO -->
+      <section id="inicio" class="hero-section">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-tag"><span class="led led--on" aria-hidden="true"></span>AUTOMAÇÃO INDUSTRIAL &amp; DESENVOLVIMENTO FULL STACK</span>
+            <h1>Conectando o <em>chão de fábrica</em> a cloud.</h1>
+            <p>
+              Projeto soluções completas que unem controle de processos, integração de hardware,
+              e sistemas web de alta performance — do CLP à nuvem.
+            </p>
+            <div class="hero-actions">
+              <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+              <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+            </div>
+          </div>
+
+          <div class="hero-avatar">
+            <div class="signal-ring" aria-hidden="true">
+              <svg viewBox="0 0 200 200">
+                <circle class="signal-ring-track" cx="100" cy="100" r="94"></circle>
+                <circle class="signal-ring-trace" cx="100" cy="100" r="94"></circle>
+              </svg>
+            </div>
+            <img src="images/avatar-bns.png" alt="Foto de Bruno Souza" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE -->
+      <section id="sobre" class="section sobre-section reveal">
+        <div class="section-head">
+          <span class="section-tag">01 // SOBRE</span>
+          <h2 class="section-title">Do hardware ao código: <br>soluções de ponta a ponta</h2>
         </div>
 
-        <!-- Filtros gerados dinamicamente via JS com base nas categorias do portfolio.json -->
+        <div class="sobre-grid">
+          <div class="sobre-bio">
+            <p>Sou engenheiro com experiência em automação industrial e desenvolvimento de software. Atuo desde a programação de CLPs, IHMs e configuração de redes industriais, até dashboards web, APIs REST e arquiteturas em nuvem para monitoramento em tempo real.</p>
+            <p>Minha base técnica vem de mais de 5 anos com programação industrial, lógica de controle e automação — uma visão diferenciada para resolver problemas de forma eficiente, que aplico também no desenvolvimento de software com organização, clareza e atenção aos detalhes.</p>
+            <p>Automação moderna não se limita ao controle local: é sobre visibilidade total dos dados e eficiência de processos.</p>
+
+            <div class="skills-wrap">
+              <div class="skills-group">
+                <h3>Automação Industrial &amp; Controle</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">Siemens / TIA Portal</span>
+                  <span class="skill-tag">Rockwell / Studio 5000</span>
+                  <span class="skill-tag">Altus / MasterTools</span>
+                  <span class="skill-tag">SCADA / IHM</span>
+                  <span class="skill-tag">Ladder &amp; Structured Text</span>
+                  <span class="skill-tag">Graph &amp; Sequential Function Chart</span>
+                  <span class="skill-tag">Function Block Diagram</span>
+                  <span class="skill-tag">PlantPAx</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Protocolos</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">Modbus TCP &amp; RTU</span>
+                  <span class="skill-tag">Ethernet/IP</span>
+                  <span class="skill-tag">Profinet</span>
+                  <span class="skill-tag">OPCUA</span>
+                  <span class="skill-tag">MQTT</span>
+                  <span class="skill-tag">I/O Link</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Software &amp; Desenvolvimento Web</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">PostgreSQL</span>
+                </div>
+              </div>
+              <div class="skills-group">
+                <h3>Ferramentas</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">VS Code</span>
+                  <span class="skill-tag">Figma</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sobre-timeline">
+            <h3 class="timeline-heading">Linha do tempo — competições &amp; conquistas</h3>
+            <div id="timeline-track" class="timeline-track">
+              <!-- gerado via js/main.js a partir de data/timeline.json -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section id="projetos" class="section portfolio-section reveal">
+        <div class="section-head">
+          <span class="section-tag">02 // PROJETOS</span>
+          <h2 class="section-title">Portfólio de engenharia &amp; software</h2>
+          <p class="section-lede">Veja os projetos que desenvolvi ao longo da minha jornada.</p>
+        </div>
+
         <div class="portfolio-filters" role="tablist" aria-label="Filtrar projetos"></div>
 
         <div class="carousel-wrap">
@@ -177,104 +243,75 @@
             </button>
           </div>
         </div>
+      </section>
 
-        <div class="portfolio-cta reveal">
-          <p>Quer algo assim para o seu negócio?</p>
-          <a href="#contato" class="btn btn-primary">Fale Comigo</a>
+      <!-- CONTATO -->
+      <section id="contato" class="section contact-section reveal">
+        <div class="section-head">
+          <span class="section-tag">03 // CONTATO</span>
+          <h2 class="section-title">Vamos construir seu <br>projeto?</h2>
+          <p class="section-lede">Quer discutir um projeto de automação, desenvolvimento, ou trocar uma ideia sobre tecnologia? Entre em contato — respondo em até 24h.</p>
         </div>
 
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="contact-section">
-      <div class="container">
         <div class="contact-grid">
-          <div class="contact-info reveal">
-            <div class="section-header">
-              <span class="section-tag">Contato</span>
-              <h2 class="section-title">Vamos conversar sobre o <br>seu projeto?</h2>
-            </div>
-            <p>Se você precisa de um site, sistema ou solução digital, estou disponível para conversar. Respondo em até 24h.</p>
-            <div class="contact-channels">
-              <a id="whatsapp-contact-link" href="https://wa.me/5571981686867" target="_blank" rel="noopener" class="contact-channel">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp — (71) 98168-6867
-              </a>
-              <a href="mailto:bns.me.dev@gmail.com" class="contact-channel">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="contact-channels">
+            <a id="whatsapp-contact-link" href="https://wa.me/5571981686867" target="_blank" rel="noopener" class="contact-channel">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>
+                <strong>WhatsApp</strong>
+                (71) 98168-6867
+              </span>
+            </a>
+            <a href="mailto:bns.me.dev@gmail.com" class="contact-channel">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>
+                <strong>E-mail</strong>
                 bns.me.dev@gmail.com
-              </a>
-              <a href="https://github.com/bns-me-dev" target="_blank" rel="noopener" class="contact-channel">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                GitHub — github.com/bns-me-dev
-              </a>
+              </span>
+            </a>
+            <a href="https://github.com/bns-me-dev" target="_blank" rel="noopener" class="contact-channel">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>
+                <strong>GitHub</strong>
+                github.com/bns-me-dev
+              </span>
+            </a>
+          </div>
+
+          <form id="fs-contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="contact-name">Nome</label>
+              <input id="contact-name" type="text" name="name" placeholder="Seu nome completo" required />
+              <small class="error-message">Preencha seu nome.</small>
             </div>
-          </div>
-          <div class="reveal reveal-delay-2">
-            <form id="fs-contact-form" class="contact-form" novalidate>
-              <div class="form-group">
-                <label for="contact-name">Nome</label>
-                <input id="contact-name" type="text" name="name" placeholder="Seu nome completo" required />
-                <small class="error-message">Preencha seu nome.</small>
-              </div>
-              <div class="form-group">
-                <label for="contact-email">E-mail</label>
-                <input id="contact-email" type="email" name="email" placeholder="seu@email.com" required />
-                <small class="error-message">Informe um e-mail válido.</small>
-              </div>
-              <div class="form-group">
-                <label for="contact-phone">Telefone</label>
-                <input id="contact-phone" type="tel" name="phone" placeholder="(71) 9 9999-9999" required />
-                <small class="error-message">Informe seu telefone.</small>
-              </div>
-              <div class="form-group">
-                <label for="contact-message">Mensagem</label>
-                <textarea id="contact-message" name="message" placeholder="Conte um pouco sobre seu projeto…" required></textarea>
-                <small class="error-message">Conte um pouco sobre seu projeto.</small>
-              </div>
-              <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
-              <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-            </form>
-          </div>
+            <div class="form-group">
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" type="email" name="email" placeholder="seu@email.com" required />
+              <small class="error-message">Informe um e-mail válido.</small>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Telefone</label>
+              <input id="contact-phone" type="tel" name="phone" placeholder="(71) 9 9999-9999" required />
+              <small class="error-message">Informe seu telefone.</small>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Mensagem</label>
+              <textarea id="contact-message" name="message" placeholder="Conte um pouco sobre seu projeto…" required></textarea>
+              <small class="error-message">Conte um pouco sobre seu projeto.</small>
+            </div>
+            <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
+            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    <div class="container footer-grid">
-       <p class="footer-copy">© <span id="footer-year"></span> BNS.me — Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    </main>
+  </div>
 
   <!-- WhatsApp float -->
   <a id="whatsapp-button" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale pelo WhatsApp">
-    <img src="images/whatsapp.svg" alt="WhatsApp" />
+    <img src="images/whatsapp.svg" alt="" />
   </a>
-
-  <!-- Modal de projeto -->
-  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-    <div class="modal-box">
-      <button class="modal-close" id="modal-close" aria-label="Fechar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <div class="modal-image-wrap">
-        <img id="modal-image" src="" alt="" />
-      </div>
-      <div class="modal-body">
-        <div class="modal-meta">
-          <span id="modal-badge" class="category-badge"></span>
-          <div id="modal-tags" class="card-tags"></div>
-        </div>
-        <h2 id="modal-title" class="modal-title"></h2>
-        <p  id="modal-desc"  class="modal-desc"></p>
-        <div id="modal-actions" class="modal-actions"></div>
-      </div>
-    </div>
-  </div>
 
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
