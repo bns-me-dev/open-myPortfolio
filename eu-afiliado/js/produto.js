@@ -108,11 +108,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             </button>
             <p class="ea-trust-note">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              Você será redirecionado com segurança para a página oficial de pagamento.
+              Você será redirecionado com segurança para a página de vendas.
             </p>
           </div>
           <div class="ea-product-media">
-            <div class="frame">
+            <div class="frame${p.imageFit === 'contain' ? ' is-contain' : ''}">
               <img src="${p.image}" alt="${escapeHtml(p.title)}" onerror="this.src='images/product-placeholder.svg'">
             </div>
             <span class="ea-stamp">Eu<br>recomendo</span>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="container">
           <div class="ea-testimonial">
             <blockquote>&ldquo;${escapeHtml(sp.testimonial.quote)}&rdquo;</blockquote>
-            <cite>${escapeHtml(sp.testimonial.author || 'Bruno Souza')}</cite>
+            <cite>${escapeHtml(sp.testimonial.author || 'BNS')}</cite>
           </div>
         </div>
       </section>` : ''}

@@ -4,28 +4,66 @@
   "products": [
     {
       "id": 1,
-      "slug": "exemplo-curso-marketing",
+      "slug": "psicoterapia-e-psicanalise-formacao-completa",
       "category": "curso",
-      "title": "Exemplo: Curso de Marketing Digital",
-      "shortDescription": "Curso completo do zero ao avançado, com foco em tráfego pago e conversão.",
-      "image": "images/products/exemplo-curso-marketing.jpg",
-      "tags": ["Marketing", "Tráfego Pago", "Iniciante"],
-      "affiliateUrl": "https://exemplo-plataforma-afiliado.com/checkout/curso-marketing?src=bnsme",
+      "title": "Psicoterapia e Psicanálise - Formação Completa",
+      "shortDescription": "Formação online em Psicoterapia e Psicanálise para quem deseja aprofundar seus conhecimentos na área.",
+      "image": "images/products/curso-psicoterapia-e-psicanalise.png",
+      "imageFit": "contain",
+      "tags": [
+        "Psicoterapia",
+        "Psicanálise",
+        "Formação Online"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/E107083767Q",
       "salesPage": {
-        "eyebrow": "Recomendação pessoal",
-        "headline": "O curso que eu usei pra sair do zero em marketing digital",
-        "subheadline": "Metodologia direta ao ponto, sem enrolação — do primeiro anúncio à primeira venda.",
-        "price": "R$ 197",
-        "originalPrice": "R$ 397",
-        "badge": "Mais recomendado",
+        "eyebrow": "Formação online",
+        "headline": "Uma formação completa em Psicoterapia e Psicanálise",
+        "subheadline": "Aprofunde seus conhecimentos na área por meio de uma formação online com acesso a conteúdos organizados para seus estudos.",
+        "price": "Confira o valor na página de vendas",
+        "originalPrice": "",
+        "badge": "Em destaque",
         "benefits": [
-          "Aulas práticas, direto ao ponto, sem enrolação",
-          "Templates de anúncios prontos pra copiar e adaptar",
-          "Suporte da comunidade dos alunos",
-          "Acesso vitalício e atualizações incluídas"
+          "Formação online em Psicoterapia e Psicanálise",
+          "Acesso à área de membros",
+          "Conteúdos voltados ao estudo da área",
+          "Estude online e no seu ritmo"
         ],
-        "ctaLabel": "Quero garantir o meu"
-      } 
-    }   
+        "ctaLabel": "Conhecer a formação"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "curso-2-fase-oab-direito-constitucional",
+      "category": "curso",
+      "title": "IR Curso - 2ª Fase OAB Direito Constitucional",
+      "shortDescription": "Curso preparatório para a 2ª fase da OAB em Direito Constitucional, com foco na preparação para a prova prática.",
+      "image": "images/products/curso-2-fase-oab-direito-constitucional.png",
+      "imageFit": "contain",
+      "tags": [
+        "OAB",
+        "2ª Fase",
+        "Direito Constitucional",
+        "Prova Prática"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/S107084216Q",
+      "salesPage": {
+        "eyebrow": "Preparação para a 2ª fase da OAB",
+        "headline": "Prepare-se para a 2ª fase da OAB em Direito Constitucional",
+        "subheadline": "Um método de preparação focado na etapa prática da prova, com técnicas para identificação das peças, estruturação da redação e treinamento.",
+        "price": "R$ 797",
+        "originalPrice": "",
+        "badge": "Curso preparatório",
+        "benefits": [
+          "Técnica de identificação das peças a partir de 03 grupos específicos",
+          "03 estruturas de peças práticas para diferentes situações",
+          "Método de redação para organizar os itens da prova",
+          "Aproximadamente 55 horas de aulas gravadas",
+          "Exercícios práticos e correções dos treinos",
+          "Aulas ao vivo semanais até a data da 2ª fase"
+        ],
+        "ctaLabel": "Conhecer o curso"
+      }
+    }  
   ]
 }

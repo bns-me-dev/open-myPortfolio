@@ -149,6 +149,13 @@ body::before {
 .ea-card-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
 .ea-card:hover .ea-card-thumb img { transform:scale(1.045); }
 
+.ea-card-thumb.is-contain { background:var(--bg-2); }
+.ea-card-thumb.is-contain img {
+  object-fit:contain; padding:10%;
+  transition: transform .45s ease;
+}
+.ea-card:hover .ea-card-thumb.is-contain img { transform:scale(1.03); }
+
 /* Selo de curadoria — assinatura visual do Eu Afiliado */
 .ea-stamp {
   position:absolute; top:14px; right:14px;
@@ -250,6 +257,9 @@ body::before {
 }
 .ea-product-media img { width:100%; height:100%; object-fit:cover; }
 .ea-product-media .ea-stamp { width:88px; height:88px; font-size:.78rem; top:-16px; right:-16px; }
+
+.ea-product-media .frame.is-contain { background:var(--bg-2); aspect-ratio: 3/2; }
+.ea-product-media .frame.is-contain img { object-fit:contain; padding:2%; }
 
 .ea-badge-pill {
   display:inline-block; font-family:var(--font-body); font-size:.72rem; font-weight:700;

@@ -125,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('article');
       card.className = 'ea-card reveal';
 
+      const thumbClass = p.imageFit === 'contain' ? 'ea-card-thumb is-contain' : 'ea-card-thumb';
+
       card.innerHTML = `
         <div class="ea-card-thumb">
           <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='images/product-placeholder.svg'">
