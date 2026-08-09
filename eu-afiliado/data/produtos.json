@@ -8,8 +8,7 @@
       "category": "curso",
       "title": "Psicoterapia e Psicanálise - Formação Completa",
       "shortDescription": "Formação online em Psicoterapia e Psicanálise para quem deseja aprofundar seus conhecimentos na área.",
-      "image": "images/products/curso-psicoterapia-e-psicanalise.png",
-      "imageFit": "contain",
+      "image": "images/products/curso-psicoterapia-e-psicanalise.jpeg",
       "tags": [
         "Psicoterapia",
         "Psicanálise",
@@ -39,7 +38,6 @@
       "title": "IR Curso - 2ª Fase OAB Direito Constitucional",
       "shortDescription": "Curso preparatório para a 2ª fase da OAB em Direito Constitucional, com foco na preparação para a prova prática.",
       "image": "images/products/curso-2-fase-oab-direito-constitucional.png",
-      "imageFit": "contain",
       "tags": [
         "OAB",
         "2ª Fase",
@@ -61,6 +59,38 @@
           "Aproximadamente 55 horas de aulas gravadas",
           "Exercícios práticos e correções dos treinos",
           "Aulas ao vivo semanais até a data da 2ª fase"
+        ],
+        "ctaLabel": "Conhecer o curso"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "excel-basico-avancado-powerbi",
+      "category": "curso",
+      "title": "Excel Básico e Avançado - PowerBI",
+      "shortDescription": "Curso online de Excel do básico ao avançado, com conteúdo voltado para quem deseja desenvolver habilidades em Excel e Power BI.",
+      "image": "images/products/excel-basico-avancado-powerbi.png",
+      "tags": [
+        "Excel",
+        "Excel Básico",
+        "Excel Avançado",
+        "Power BI",
+        "Produtividade"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/V107086138I",
+      "salesPage": {
+        "eyebrow": "Curso online",
+        "headline": "Domine o Excel do básico ao avançado",
+        "subheadline": "Aprenda Excel de forma progressiva e desenvolva habilidades para utilizar a ferramenta no ambiente profissional e no dia a dia.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Mais vendido",
+        "benefits": [
+          "Conteúdo de Excel do nível básico ao avançado",
+          "Aprendizado progressivo para diferentes níveis de conhecimento",
+          "Conteúdos voltados para produtividade e aplicação profissional",
+          "Acesso a materiais e conteúdos online",
+          "Conteúdo complementar relacionado ao Power BI"
         ],
         "ctaLabel": "Conhecer o curso"
       }
