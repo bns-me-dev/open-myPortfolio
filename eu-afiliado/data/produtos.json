@@ -1,0 +1,7 @@
+{
+  "_readme": "Cada objeto aqui vira 1 card no catálogo e 1 página de vendas (produto.html?slug=...). Para adicionar um produto novo, copie um bloco inteiro, troque os valores e salve — não precisa mexer em HTML/JS. 'slug' precisa ser único (sem espaços/acentos) e é ele que aparece na URL.",
+
+  "products": [
+    
+  ]
+}
