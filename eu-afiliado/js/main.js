@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Selo curto exibido no carimbo do card (assinatura visual) */
   function getStampText(cat) {
     const map = {
-      curso: 'Eu\nfiz',
-      ebook: 'Eu\nli',
-      software: 'Eu\nuso',
-      mentoria: 'Eu\nparticipei',
-      template: 'Eu\nuso',
+      curso: 'Eu\nrecomendo',
+      ebook: 'Eu\nrecomendo',
+      software: 'Eu\nrecomendo',
+      mentoria: 'Eu\nrecomendo',
+      template: 'Eu\nrecomendo',
     };
     return map[cat] || 'Eu\nrecomendo';
   }
