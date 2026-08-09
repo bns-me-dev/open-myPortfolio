@@ -129,21 +129,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
         </div>
       </section>` : ''}
-
-      <section class="ea-final-cta">
-        <div class="container">
-          <p>Pronto pra começar?</p>
-          <button type="button" class="ea-cta-primary" id="ea-cta-btn-2">
-            ${escapeHtml(sp.ctaLabel || 'Quero garantir o meu')}
-          </button>
-          <div>
-            <a href="index.html" class="ea-back-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="15 18 9 12 15 6"/></svg>
-              Ver outras recomendações
-            </a>
-          </div>
-        </div>
-      </section>
     `);
 
     /* Ambos os CTAs (topo e rodapé) disparam a mesma ação */

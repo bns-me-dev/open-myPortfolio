@@ -2,6 +2,30 @@
   "_readme": "Cada objeto aqui vira 1 card no catálogo e 1 página de vendas (produto.html?slug=...). Para adicionar um produto novo, copie um bloco inteiro, troque os valores e salve — não precisa mexer em HTML/JS. 'slug' precisa ser único (sem espaços/acentos) e é ele que aparece na URL.",
 
   "products": [
-    
+    {
+      "id": 1,
+      "slug": "exemplo-curso-marketing",
+      "category": "curso",
+      "title": "Exemplo: Curso de Marketing Digital",
+      "shortDescription": "Curso completo do zero ao avançado, com foco em tráfego pago e conversão.",
+      "image": "images/products/exemplo-curso-marketing.jpg",
+      "tags": ["Marketing", "Tráfego Pago", "Iniciante"],
+      "affiliateUrl": "https://exemplo-plataforma-afiliado.com/checkout/curso-marketing?src=bnsme",
+      "salesPage": {
+        "eyebrow": "Recomendação pessoal",
+        "headline": "O curso que eu usei pra sair do zero em marketing digital",
+        "subheadline": "Metodologia direta ao ponto, sem enrolação — do primeiro anúncio à primeira venda.",
+        "price": "R$ 197",
+        "originalPrice": "R$ 397",
+        "badge": "Mais recomendado",
+        "benefits": [
+          "Aulas práticas, direto ao ponto, sem enrolação",
+          "Templates de anúncios prontos pra copiar e adaptar",
+          "Suporte da comunidade dos alunos",
+          "Acesso vitalício e atualizações incluídas"
+        ],
+        "ctaLabel": "Quero garantir o meu"
+      } 
+    }   
   ]
 }
