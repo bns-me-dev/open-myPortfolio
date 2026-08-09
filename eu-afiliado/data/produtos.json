@@ -94,6 +94,134 @@
         ],
         "ctaLabel": "Conhecer o curso"
       }
-    }  
+    },
+    {
+      "id": 4,
+      "slug": "defesa-pessoal-caveira-2-0",
+      "category": "curso",
+      "title": "DEFESA PESSOAL CAVEIRA 2.0",
+      "shortDescription": "Curso online de defesa pessoal e artes marciais, com técnicas de treinamento voltadas para situações de conflito e autodefesa.",
+      "image": "images/products/defesa-pessoal-caveira-2-0.jpg",
+      "tags": [
+        "Defesa Pessoal",
+        "Artes Marciais",
+        "Krav Maga",
+        "Autodefesa",
+        "Treinamento"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/C107086550G",
+      "salesPage": {
+        "eyebrow": "Curso online de defesa pessoal",
+        "headline": "Aprenda técnicas de defesa pessoal para diferentes situações",
+        "subheadline": "Um treinamento online com técnicas de defesa pessoal e artes marciais, desenvolvido para quem deseja aprender e praticar novos conhecimentos de autodefesa.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Curso online",
+        "benefits": [
+          "Técnicas de defesa pessoal e autodefesa",
+          "Conteúdo do básico ao avançado",
+          "Treinamento com técnicas de artes marciais",
+          "Acesso a aulas e materiais online",
+          "Possibilidade de acompanhar o conteúdo no seu ritmo"
+        ],
+        "ctaLabel": "Conhecer o curso"
+      }
+    },
+    {
+      "id": 5,
+      "slug": "barber-school",
+      "category": "curso",
+      "title": "Barber School",
+      "shortDescription": "Curso online de barbearia profissional com conteúdos voltados ao desenvolvimento de técnicas e conhecimentos para quem deseja aprender ou aperfeiçoar suas habilidades na área.",
+      "image": "images/products/barber-school.jpg",
+      "tags": [
+        "Barbearia",
+        "Barbeiro",
+        "Corte Masculino",
+        "Barber School",
+        "Curso Profissional"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/U107089993S",
+      "salesPage": {
+        "eyebrow": "Curso online de barbearia",
+        "headline": "Aprenda técnicas profissionais de barbearia",
+        "subheadline": "Uma formação online para quem deseja aprender e aperfeiçoar técnicas de barbearia, com conteúdos voltados à prática profissional.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Curso online",
+        "benefits": [
+          "Conteúdos voltados à formação profissional de barbeiros",
+          "Aprendizado de técnicas de barbearia",
+          "Curso 100% online",
+          "Suporte e acompanhamento durante o aprendizado",
+          "Conteúdo desenvolvido para quem deseja aprender ou aperfeiçoar suas habilidades"
+        ],
+        "ctaLabel": "Conhecer o curso"
+      }
+    },
+    {
+      "id": 6,
+      "slug": "curso-profissional-limpeza-de-pele",
+      "category": "curso",
+      "title": "Curso Profissional de Limpeza de Pele",
+      "shortDescription": "Curso online sobre limpeza de pele profunda, com conteúdos sobre técnicas, tipos de pele, produtos e procedimentos relacionados ao tratamento estético.",
+      "image": "images/products/curso-profissional-limpeza-de-pele.png",
+      "tags": [
+        "Limpeza de Pele",
+        "Estética",
+        "Estética Facial",
+        "Skincare",
+        "Curso Online"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/R107089973Q",
+      "salesPage": {
+        "eyebrow": "Curso profissional online",
+        "headline": "Aprenda sobre limpeza de pele e cuidados estéticos",
+        "subheadline": "Conheça técnicas e conceitos relacionados à limpeza de pele profunda, tipos de pele, procedimentos e cuidados utilizados na área da estética.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Curso online",
+        "benefits": [
+          "Conteúdo sobre limpeza de pele profunda",
+          "Estudo dos diferentes tipos de pele",
+          "Conteúdos sobre procedimentos e cuidados estéticos",
+          "Informações sobre produtos utilizados na limpeza de pele",
+          "Material voltado ao aprendizado na área de estética"
+        ],
+        "ctaLabel": "Conhecer o curso"
+      }
+    },
+    {
+      "id": 7,
+      "slug": "350-cifras-simplificadas-cavaquinho",
+      "category": "ebook",
+      "title": "350 Cifras Simplificadas para Cavaquinho",
+      "shortDescription": "Material com 350 cifras simplificadas para cavaquinho, desenvolvido para facilitar o aprendizado e a prática de músicas no instrumento.",
+      "image": "images/products/350-cifras-simplificadas-cavaquinho.png",
+      "tags": [
+        "Cavaquinho",
+        "Cifras",
+        "Música",
+        "Iniciante",
+        "Instrumento Musical"
+      ],
+      "affiliateUrl": "https://go.hotmart.com/U107089875W",
+      "salesPage": {
+        "eyebrow": "Material para cavaquinho",
+        "headline": "350 cifras simplificadas para tocar cavaquinho",
+        "subheadline": "Um material com cifras simplificadas para facilitar seus estudos e ajudar você a praticar suas músicas favoritas no cavaquinho.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Material digital",
+        "benefits": [
+          "350 cifras simplificadas para cavaquinho",
+          "Material pensado para facilitar o acompanhamento das músicas",
+          "Cifras organizadas para diferentes níveis de conhecimento",
+          "Opções de cifras com letras e modelo tradicional",
+          "Conteúdo voltado para estudo e prática do instrumento"
+        ],
+        "ctaLabel": "Conhecer o material"
+      }
+    }
   ]
 }
