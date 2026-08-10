@@ -222,6 +222,41 @@
         ],
         "ctaLabel": "Conhecer o material"
       }
+    },
+    {
+      "id": 8,
+      "slug": "metodo-adl-comprando-antes-do-leilao",
+      "category": "curso",
+      "title": "Método ADL - Comprando Antes do Leilão",
+      "shortDescription": "Método online para aprender como encontrar, avaliar e comprar veículos antes que cheguem aos leilões públicos, com conteúdos sobre negociação, documentação e análise de veículos.",
+      "image": "images/products/metodo-adl-comprando-antes-do-leilao.jpg",
+      "tags": [
+        "Carros",
+        "Compra de Veículos",
+        "Leilão de Veículos",
+        "Mercado Automotivo",
+        "Negociação"
+      ],
+      "affiliateUrl": "https://kiwify.app/itNNPGK?afid=D0vrl778",
+      "salesPage": {
+        "eyebrow": "Método online",
+        "headline": "Aprenda como comprar veículos antes do leilão",
+        "subheadline": "Um método completo para entender onde encontrar oportunidades, avaliar veículos, negociar e conduzir o processo de compra antes que eles cheguem aos leilões públicos.",
+        "price": "Confira o valor",
+        "originalPrice": "",
+        "badge": "Método completo",
+        "benefits": [
+          "Mais de 40 aulas sobre o método",
+          "Conteúdos sobre localização e análise de veículos",
+          "Estratégias e scripts para negociação",
+          "Orientações sobre documentação, transferência e retirada",
+          "Suporte direto para a primeira compra",
+          "Aulas ao vivo com especialistas",
+          "Acesso vitalício e atualizações",
+          "Garantia de 7 dias"
+        ],
+        "ctaLabel": "Conhecer o método"
+      }
     }
   ]
 }
