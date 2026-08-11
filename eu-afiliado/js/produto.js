@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="frame${p.imageFit === 'contain' ? ' is-contain' : ''}">
               <img src="${p.image}" alt="${escapeHtml(p.title)}" onerror="this.src='images/product-placeholder.svg'">
             </div>
-            <span class="ea-stamp">Eu<br>recomendo</span>
+            <span class="ea-stamp">EM<br>DESTAQUE</span>
           </div>
         </div>
       </section>
