@@ -87,7 +87,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
     storiesEl.appendChild(allBtn);
 
-    categories.forEach(cat => {
+    const usedSlugs = new Set(allProducts.map(p => p.category));
+
+    const declared = categories.filter(cat => usedSlugs.has(cat.slug));
+    const declaredSlugs = new Set(declared.map(c => c.slug));
+    const undeclared = [...usedSlugs]
+      .filter(slug => !declaredSlugs.has(slug))
+      .map(slug => ({ slug, label: slugToLabel(slug), subcategories: [] }));
+
+    [...declared, ...undeclared].forEach(cat => {
       const btn = document.createElement('button');
       btn.className = 'bn-store-btn' + (state.category === cat.slug ? ' active' : '');
       const initial = cat.label.charAt(0).toUpperCase();
@@ -111,20 +119,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!state.category) { subfiltersEl.style.display = 'none'; return; }
 
     const cat = categories.find(c => c.slug === state.category);
-    if (!cat || !cat.subcategories || !cat.subcategories.length) {
-      subfiltersEl.style.display = 'none';
-      return;
-    }
 
+    /* Só mostra subcategoria que tem pelo menos 1 produto, dentro da
+      categoria ativa — mesmo raciocínio do buildStories(). */
+    const usedSubSlugs = new Set(
+      allProducts.filter(p => p.category === state.category).map(p => p.subcategory).filter(Boolean)
+    );
+
+    const declaredSubs = (cat?.subcategories || []).filter(s => usedSubSlugs.has(s.slug));
+    const declaredSubSlugs = new Set(declaredSubs.map(s => s.slug));
+    const undeclaredSubs = [...usedSubSlugs]
+      .filter(slug => !declaredSubSlugs.has(slug))
+      .map(slug => ({ slug, label: slugToLabel(slug) }));
+
+    const allSubs = [...declaredSubs, ...undeclaredSubs];
+
+    if (!allSubs.length) { subfiltersEl.style.display = 'none'; return; }
     subfiltersEl.style.display = 'flex';
+
+    const catLabel = cat ? cat.label : slugToLabel(state.category);
 
     const allChip = document.createElement('button');
     allChip.className = 'bn-chip' + (!state.sub ? ' active' : '');
-    allChip.textContent = `Todos em ${cat.label}`;
+    allChip.textContent = `Todos em ${catLabel}`;
     allChip.addEventListener('click', () => { state.sub = null; afterFilterChange(); });
     subfiltersEl.appendChild(allChip);
 
-    cat.subcategories.forEach(sub => {
+    allSubs.forEach(sub => {
       const chip = document.createElement('button');
       chip.className = 'bn-chip' + (state.sub === sub.slug ? ' active' : '');
       chip.textContent = sub.label;
@@ -134,6 +155,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       subfiltersEl.appendChild(chip);
     });
+  }
+
+  /* Gera um rótulo legível a partir de um slug não declarado em
+   categorias.json — "meio-ambiente" → "Meio Ambiente" */
+  function slugToLabel(slug) {
+    return slug
+      .split('-')
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
   }
 
   function afterFilterChange() {
