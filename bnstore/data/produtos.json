@@ -1,0 +1,74 @@
+{
+  "_readme": "Cada objeto vira 1 card no catálogo + 1 página em produto.html?slug=... Campos obrigatórios: id, slug (único), title, category, subcategory (slugs batendo com categorias.json), marketplace ('shopee' | 'amazon' | 'mercadolivre'), image, price, affiliateUrl, review.summary, review.bullets. 'alsoOn' é opcional — use quando o mesmo produto existir em outro marketplace, pra oferecer comparação de preço.",
+
+  "products": [
+    {
+      "id": 1,
+      "slug": "organizador-gavetas-modular",
+      "title": "Organizador de Gavetas Modular 8 Peças",
+      "category": "casa",
+      "subcategory": "organizacao",
+      "marketplace": "shopee",
+      "image": "images/products/organizador-gavetas.jpg",
+      "price": "R$ 39,90",
+      "originalPrice": "R$ 59,90",
+      "affiliateUrl": "https://s.shopee.com.br/SEU-LINK-AQUI",
+      "tags": ["organização", "gaveta", "cozinha", "casa"],
+      "review": {
+        "summary": "Uso esse conjunto pra organizar talheres e utensílios pequenos — encaixa em qualquer gaveta porque as peças são modulares.",
+        "bullets": [
+          "8 peças de tamanhos diferentes, encaixam entre si",
+          "Material resistente, não risca a gaveta",
+          "Fácil de lavar e reorganizar quando muda a necessidade"
+        ]
+      },
+      "alsoOn": null
+    },
+    {
+      "id": 2,
+      "slug": "fone-bluetooth-tws-anc",
+      "title": "Fone Bluetooth TWS com Cancelamento de Ruído",
+      "category": "tech",
+      "subcategory": "audio",
+      "marketplace": "amazon",
+      "image": "images/products/fone-tws-anc.jpg",
+      "price": "R$ 189,00",
+      "affiliateUrl": "https://amzn.to/SEU-LINK-AQUI",
+      "tags": ["fone", "bluetooth", "áudio", "tech"],
+      "review": {
+        "summary": "Uso no dia a dia de trabalho — o cancelamento de ruído ajuda bastante em call e em ambiente com barulho de fundo.",
+        "bullets": [
+          "Cancelamento de ruído ativo (ANC) funcional no dia a dia",
+          "Bateria dura o dia inteiro de uso moderado",
+          "Case compacto, cabe no bolso"
+        ]
+      },
+      "alsoOn": {
+        "marketplace": "mercadolivre",
+        "price": "R$ 195,00",
+        "affiliateUrl": "https://mercadolivre.com/sec/SEU-LINK-AQUI"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "garrafa-termica-inox-1l",
+      "title": "Garrafa Térmica Inox 1L",
+      "category": "bem-estar",
+      "subcategory": "fitness",
+      "marketplace": "mercadolivre",
+      "image": "images/products/garrafa-termica-inox.jpg",
+      "price": "R$ 74,90",
+      "affiliateUrl": "https://mercadolivre.com/sec/SEU-LINK-AQUI",
+      "tags": ["garrafa", "térmica", "fitness", "hidratação"],
+      "review": {
+        "summary": "Levo pra academia e pro trabalho — mantém gelado por muitas horas mesmo em dia quente.",
+        "bullets": [
+          "Mantém temperatura por até 18 horas (gelado) segundo o fabricante",
+          "Tampa vazante zero, já testei na mochila",
+          "Boca larga, fácil de colocar gelo"
+        ]
+      },
+      "alsoOn": null
+    }
+  ]
+}

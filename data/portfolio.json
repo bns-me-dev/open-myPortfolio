@@ -3,11 +3,11 @@
     {
       "id": 1,
       "category": "pd",
-      "title": "Eu Afiliado",
-      "description": "Projeto pessoal: catálogo de produtos digitais que eu uso e recomendo, organizado por categoria com filtros dinâmicos. Cada produto tem sua própria página de vendas, com rastreamento de conversão para campanhas de mídia paga.",
-      "image": "images/cases/eu-afiliado.png",
-      "tags": ["HTML", "CSS", "JavaScript", "Google Ads"],
-      "url": "eu-afiliado/"
+      "title": "BNStore",
+      "description": "Loja pessoal de produtos afiliados: curadoria de achados da Shopee, Amazon e Mercado Livre, organizados por categoria e subcategoria, com busca por nome. Cada produto tem sua própria página com review, comparação de preço entre marketplaces e produtos relacionados.",
+      "image": "images/cases/bnstore.png",
+      "tags": ["HTML", "CSS", "JavaScript", "Afiliados", "SEO"],
+      "url": "bnstore/"
     },
     {
       "id": 2,
