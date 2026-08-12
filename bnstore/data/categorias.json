@@ -1,0 +1,32 @@
+{
+  "_readme": "Cada categoria vira um círculo de navegação no topo do catálogo (o 'story' da BNStore). Subcategorias aparecem como filtro secundário só depois que uma categoria é selecionada. Para adicionar uma categoria nova, copie um bloco e ajuste — o catálogo se atualiza sozinho.",
+
+  "categories": [
+    {
+      "slug": "casa",
+      "label": "Casa",
+      "subcategories": [
+        { "slug": "organizacao", "label": "Organização" },
+        { "slug": "cozinha",     "label": "Cozinha" },
+        { "slug": "decoracao",   "label": "Decoração" }
+      ]
+    },
+    {
+      "slug": "tech",
+      "label": "Tech",
+      "subcategories": [
+        { "slug": "acessorios",  "label": "Acessórios" },
+        { "slug": "audio",       "label": "Áudio" },
+        { "slug": "escritorio",  "label": "Escritório" }
+      ]
+    },
+    {
+      "slug": "bem-estar",
+      "label": "Bem-estar",
+      "subcategories": [
+        { "slug": "fitness",   "label": "Fitness" },
+        { "slug": "cuidados",  "label": "Cuidados pessoais" }
+      ]
+    }
+  ]
+}
