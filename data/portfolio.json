@@ -2,15 +2,6 @@
   "projects": [
     {
       "id": 1,
-      "category": "pd",
-      "title": "BNStore",
-      "description": "Loja pessoal de produtos afiliados: curadoria de achados da Shopee, Amazon e Mercado Livre, organizados por categoria e subcategoria, com busca por nome. Cada produto tem sua própria página com review, comparação de preço entre marketplaces e produtos relacionados.",
-      "image": "images/cases/bnstore.png",
-      "tags": ["HTML", "CSS", "JavaScript", "Afiliados", "SEO"],
-      "url": "bnstore/"
-    },
-    {
-      "id": 2,
       "category": "software",
       "title": "Amorai | by Chef Nanda Souza",
       "description": "Site desenvolvido para a chef Nanda Souza, gastróloga e apaixonada por alimentação saudável. Projeto com foco em performance, SEO técnico e alta taxa de conversão. Layout responsivo, formulário de contato integrado e otimização para Google.",
